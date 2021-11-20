@@ -13,7 +13,7 @@ function makePromiseResolveWith3(){
  * 
  * EXERCISE 2
  * 
- * @returns {Promise<,"Boo!">}
+ * @returns {Promise<void,string>}
  */
 function makePromiseRejectWithBoo(){
   return Promise.reject('Boo!');
