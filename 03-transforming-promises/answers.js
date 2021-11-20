@@ -38,11 +38,12 @@ function mapPromise(promise, transformer){
  * @param {Promise<number | string>} numberPromise 
  * @returns {Promise<number>}
  */
-function squarePromise(numberPromise){
+function squarePromise(numberPromise) {
   return numberPromise
     .then(num => {
       if (isNaN(num)) {
-        return Promise.reject(`Cannot convert '${num}' to a number!`);
+        // return Promise.reject(`Cannot convert '${num}' to a number!`); exercise 2
+        return Promise.resolve(0); // exercise 3
       }
       return num * num;
     })
