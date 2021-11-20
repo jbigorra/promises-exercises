@@ -29,13 +29,24 @@ function mapPromise(promise, transformer){
 /**
  * 
  * EXERCISE 2
+ *
+ * If the input promise resolves with a number, the output promise resolves with the square of that number.
+ * If the input promise resolves with a string that we can turn into a number (like "1234"), the output promise resolves with the square of that number (1522756 in this example)
+ * If the input promise resolves with a string that we cannot turn into a number (like "asdf"), then we reject with a message like "Cannot convert 'asdf' to a number!"
+ * If the input promise rejects with an error, the output promise rejects with the same error
  * 
  * @param {Promise<number | string>} numberPromise 
  * @returns {Promise<number>}
  */
 function squarePromise(numberPromise){
   return numberPromise
-    .then(/* IMPLEMENT ME! */);
+    .then(num => {
+      if (isNaN(num)) {
+        return Promise.reject(`Cannot convert '${num}' to a number!`);
+      }
+      return num * num;
+    })
+    .catch(e => Promise.reject(e));
 }
 
 /**
