@@ -58,7 +58,8 @@ function squarePromise(numberPromise) {
  */
 function squarePromiseOrZero(numberPromise){
   return squarePromise(numberPromise)
-    .catch(/* IMPLEMENT ME! */);
+    .catch(() => {throw new Error();
+    }).catch(() => Promise.resolve(0));
 }
 
 /**
@@ -66,9 +67,19 @@ function squarePromiseOrZero(numberPromise){
  * 
  * @param {Promise} promise 
  * @returns {Promise}
+ *
+ * 'This should not resolve!  It resolved with: ' + val
+ *
  */
+
 function switcheroo(promise){
-  return promise.then(/* IMPLEMENT ME */);
+  const resolved = () => {
+    return Promise.reject(3);
+  };
+  const rejected = () => {
+    return Promise.resolve(4);
+  };
+  return promise.then(resolved, rejected);
 }
 
 /**
