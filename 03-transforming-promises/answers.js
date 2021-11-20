@@ -17,6 +17,15 @@ function mapPromise(promise, transformer){
   });
 }
 
+// mapPromise(Promise.resolve(3), (val) => {
+//   // eslint-disable-next-line no-console
+//   return val * 2;
+// })
+//   .then(tval => {
+//   // eslint-disable-next-line no-console\
+//     console.log("Result: ")
+//     console.log(tval);
+//   }).catch(e => console.log(e));
 /**
  * 
  * EXERCISE 2
@@ -35,8 +44,8 @@ function squarePromise(numberPromise){
  * @param {Promise<number | string>} numberPromise 
  * @returns {Promise<number>}
  */
-function squarePromiseOrZero(promise){
-  return squarePromise(promise)
+function squarePromiseOrZero(numberPromise){
+  return squarePromise(numberPromise)
     .catch(/* IMPLEMENT ME! */);
 }
 
